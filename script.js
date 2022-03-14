@@ -5,6 +5,14 @@ const addButton = document.querySelector('.todo-input-container > button:nth-of-
 const todoNameInput = document.querySelector('.todo-input-container > input[type=text]');
 const todoDateInput = document.querySelector('.todo-input-container > input[type=date]');
 
+const addProjectButton = document.querySelector('.add-project-button');
+const projectCancelButton = document.querySelector('.project-input-container > button:nth-of-type(2)');
+const projectAddButton = document.querySelector('.project-input-container > button:nth-of-type(1)');
+const projectNameInput = document.querySelector('.project-input-container > input[type=text]');
+
+
+
+
 
 let allProjects = [];
 
@@ -29,6 +37,9 @@ const createTodo = (name, dueDate) => {
     })
 }
 
+const makeAllProjectsInactive = () => {
+    allProjects.map(project => project.active = false);
+}
 
 //DOM
 
@@ -53,11 +64,33 @@ const addTodo = (() => {
 
 })()
 
+
+const addProject = (() => {
+    const addProjectButtonContainer = document.querySelector('.add-project-button-container');
+    const projectInputContainer = document.querySelector('.project-input-container');
+
+    function showProjectInput() {
+        addProjectButtonContainer.style.display = "none";
+        projectInputContainer.style.display = "flex";
+    }
+
+    function hideProjectInput() {
+        addProjectButtonContainer.style.display = "flex";
+        projectInputContainer.style.display = "none";
+    }
+    return {
+        showProjectInput,
+        hideProjectInput,
+    }
+
+})()
+
+
 //Eventlisteners
 
 
-addTodoButton.addEventListener('click', addTodo.showTodoInput)
-cancelButton.addEventListener('click', addTodo.hideTodoInput)
+addTodoButton.addEventListener('click', addTodo.showTodoInput);
+cancelButton.addEventListener('click', addTodo.hideTodoInput);
 addButton.addEventListener('click', () => {
     createTodo(todoNameInput.value, todoDateInput.value);
     renderTodos();
@@ -66,9 +99,29 @@ addButton.addEventListener('click', () => {
     addTodo.hideTodoInput();
 })
 
+addProjectButton.addEventListener('click', addProject.showProjectInput);
+projectCancelButton.addEventListener('click', addProject.hideProjectInput);
+projectAddButton.addEventListener('click', () => {
+    makeAllProjectsInactive();
+    createProject(projectNameInput.value);
+    renderProjectTitle();
+    //renderProjects();
+    renderTodos();
+    createDeleteTodoListener();
+    addProject.hideProjectInput();
+})
+
+
+
+
 
 createProject('Example Project');
 renderProjectTitle();
+
+
+function renderProjects() {
+    //har kommet hit
+}
 
 function renderTodos() {
     const todoContainerContainer = document.querySelector('.todo-container-container');

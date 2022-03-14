@@ -38,12 +38,16 @@ body{
     justify-content: space-between;
 }
 
-.project > i {
+.project-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-container > i {
     font-size: 1rem;
-    margin-top: 6px;
     cursor: pointer;
     margin-right: 7px;
-    
 }
 
 .project-selected {
@@ -86,6 +90,30 @@ body{
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.project-input-container {
+    font-size: 1.5rem;
+    margin: 20px 0 20px 0;
+    padding: 7px 7px 7px 7px;
+    color: white;
+    border: 1px solid white;
+    display: none;
+    justify-content: space-between;
+}
+
+.project-input-container > input {
+    background-color: rgb(151, 147, 147);
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+.project-input-container > button {
+    border-radius: 5px;
+    width: 50px;
+    padding: 1px;
+    margin-left: 3px;
 }
 
 .todo-input-container {
