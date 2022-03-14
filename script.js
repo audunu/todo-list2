@@ -105,7 +105,7 @@ projectAddButton.addEventListener('click', () => {
     makeAllProjectsInactive();
     createProject(projectNameInput.value);
     renderProjectTitle();
-    //renderProjects();
+    renderProjects();
     renderTodos();
     createDeleteTodoListener();
     addProject.hideProjectInput();
@@ -115,13 +115,28 @@ projectAddButton.addEventListener('click', () => {
 
 
 
-createProject('Example Project');
-renderProjectTitle();
+
 
 
 function renderProjects() {
     //har kommet hit
+    const projectContainerContainer = document.querySelector('.project-container-container');
+    projectContainerContainer.innerHTML = '';
+    for (let i = 0; i <allProjects.length; i++) {
+        const projectContainer = document.createElement('div');
+        projectContainer.classList.add('project-container');
+        const project = document.createElement('div');
+        project.classList.add('project');
+        const trash = document.createElement('i');
+        trash.classList.add('fa-solid', 'fa-trash-can');
+        project.innerText = allProjects[i].name;
+        projectContainer.appendChild(project);
+        projectContainer.appendChild(trash);
+        projectContainerContainer.appendChild(projectContainer);
+    }
 }
+
+
 
 function renderTodos() {
     const todoContainerContainer = document.querySelector('.todo-container-container');
