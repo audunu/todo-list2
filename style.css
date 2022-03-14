@@ -1,0 +1,151 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Hubballi', cursive;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}
+
+.left-container {
+    width: 30%;
+    min-width: 250px;
+    background-color: grey;
+    padding: 30px 50px;
+    color: white;
+    font-size: 3rem;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    border-top: 0.5px;
+    border-color: white;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.project {
+    font-size: 2rem;
+    margin: 20px 0 20px 0;
+    padding: 7px 0 7px 0;
+    color: rgb(49, 49, 49);
+    display: flex;
+    justify-content: space-between;
+}
+
+.project > i {
+    font-size: 1rem;
+    margin-top: 6px;
+    cursor: pointer;
+    margin-right: 7px;
+    
+}
+
+.project-selected {
+    color: white;
+}
+
+.project:hover {
+    background-color: rgb(170, 169, 169);
+    color: white;
+}
+
+.add-project-button > span {
+    color: red;
+}
+
+.add-todo-button > span {
+    color: red;
+}
+
+.add-project-button, .add-todo-button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.add-project-button-container, .add-todo-button-container {
+    display: flex;
+    justify-content: end;
+}
+
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-title > button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.todo-input-container {
+    font-size: 1.5rem;
+    margin: 20px 0 20px 0;
+    padding: 7px 7px 7px 7px;
+    color: white;
+    border: 1px solid white;
+    display: none;
+    justify-content: space-between;
+}
+
+.todo-input-container > input {
+    background-color: rgb(151, 147, 147);
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+.todo-input-container > button {
+    border-radius: 5px;
+    width: 70px;
+}
+
+
+.todo-container {
+    font-size: 1.5rem;
+    margin: 20px 0 20px 0;
+    padding: 7px 7px 7px 7px;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-container > i {
+    font-size: 1rem;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.todo-container > .checkbox {
+    background-color: transparent;
+    width: 4%;
+    border-radius: 50%;
+    border: solid 1px white;
+    cursor: pointer;
+}
+
+.todo-container > .checkbox-checked {
+    background-color: lightgreen;
+    background-image: url(/src/assets/imgs/check.svg);
+}
+
+
+.right-container {
+    width: 70%;
+    min-width: 400px;
+    background-color: rgb(58, 58, 58);
+    padding: 30px 50px;
+    color: white;
+    font-size: 3rem;
+}
