@@ -15,8 +15,6 @@ const projectCancelButton = document.querySelector('.project-input-container > b
 const projectAddButton = document.querySelector('.project-input-container > button:nth-of-type(1)');
 const projectNameInput = document.querySelector('.project-input-container > input[type=text]');
 
-const editButton = document.querySelector('.right-container > button');
-
 
 
 
@@ -27,7 +25,15 @@ let allProjects = [];
 //static listeners
 
 
-addTodoButton.addEventListener('click', addTodo.showTodoInput);
+addTodoButton.addEventListener('click', () => {
+    if (allProjects === []) {
+        return;
+    }
+    else {
+        addTodo.showTodoInput();
+    }
+});
+
 cancelButton.addEventListener('click', addTodo.hideTodoInput);
 addButton.addEventListener('click', () => {
     createTodo(todoNameInput.value, todoDateInput.value);
@@ -51,12 +57,6 @@ projectAddButton.addEventListener('click', () => {
     addProject.hideProjectInput();
 })
 
-
-//dynamic listeners
-
-
-
-
 /* function createCheckboxListener() {
     const checkboxes = document.querySelectorAll('.todo-container > div:first-of-type');
     checkboxes.forEach((checkbox, index) => checkbox.addEventListener('click', () => {
@@ -68,4 +68,4 @@ projectAddButton.addEventListener('click', () => {
 
 
 
-export {allProjects}
+export { allProjects }
