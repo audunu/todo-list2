@@ -104,7 +104,7 @@ projectCancelButton.addEventListener('click', addProject.hideProjectInput);
 projectAddButton.addEventListener('click', () => {
     makeAllProjectsInactive();
     createProject(projectNameInput.value);
-    renderProjectTitle();
+    //renderProjectTitle();
     renderProjects();
     renderTodos();
     createDeleteTodoListener();
@@ -119,7 +119,7 @@ projectAddButton.addEventListener('click', () => {
 
 
 function renderProjects() {
-    const dynamicProjectTitle = document.querySelector('.right-container > .project-title');
+    
     const projectContainerContainer = document.querySelector('.project-container-container');
     projectContainerContainer.innerHTML = '';
     for (let i = 0; i <allProjects.length; i++) {
@@ -134,7 +134,8 @@ function renderProjects() {
         projectContainer.appendChild(trash);
         projectContainerContainer.appendChild(projectContainer);
     }
-    dynamicProjectTitle.textContent = getActiveProject().name;
+    
+    renderProjectTitle();
 }
 
 
@@ -169,7 +170,7 @@ function renderTodos() {
 
 function renderProjectTitle() {
     const title = getActiveProject().name;
-    const dynamicProjectTitle = document.querySelector('.right-container > .project-title');
+    const dynamicProjectTitle = document.querySelector('.right-container > .project-title'); 
     dynamicProjectTitle.textContent = title;
 }
 
