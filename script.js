@@ -108,6 +108,8 @@ projectAddButton.addEventListener('click', () => {
     renderProjects();
     renderTodos();
     createDeleteTodoListener();
+    createDeleteProjectListener();
+    createSelectProjectListener();
     addProject.hideProjectInput();
 })
 
@@ -136,6 +138,7 @@ function renderProjects() {
     }
     
     renderProjectTitle();
+    renderTodos();
 }
 
 
@@ -175,6 +178,7 @@ function renderProjectTitle() {
 }
 
 
+//dynamic listeners
 
 function createDeleteTodoListener() {
     const todoDeleteBtns = document.querySelectorAll('.todo-container > i');
@@ -183,6 +187,26 @@ function createDeleteTodoListener() {
         renderTodos();
     }))
 }
+
+
+function createDeleteProjectListener() {
+    const projectDeleteBtns = document.querySelectorAll('.project-container > i');
+    projectDeleteBtns.forEach((btn, index) => btn.addEventListener('click', () => {
+        allProjects.splice(index, 1);
+        renderProjects();
+    }))
+}
+
+function createSelectProjectListener() {
+    const projects = document.querySelectorAll('.project');
+    projects.forEach((project, index) => project.addEventListener('click', () => {
+        makeAllProjectsInactive();
+        allProjects[index].active = true;
+        renderProjectTitle();
+        renderTodos();
+    }))
+}
+
 
 /* function createCheckboxListener() {
     const checkboxes = document.querySelectorAll('.todo-container > div:first-of-type');

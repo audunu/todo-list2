@@ -86,11 +86,16 @@ body{
     justify-content: space-between;
 }
 
-.project-title > button {
+.right-container > .project-title {
+    display: inline-block;
+}
+
+.right-container > button {
     background-color: transparent;
     color: white;
     border: none;
     cursor: pointer;
+    
 }
 
 .project-input-container {
