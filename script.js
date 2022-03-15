@@ -119,7 +119,7 @@ projectAddButton.addEventListener('click', () => {
 
 
 function renderProjects() {
-    //har kommet hit
+    const dynamicProjectTitle = document.querySelector('.right-container > .project-title');
     const projectContainerContainer = document.querySelector('.project-container-container');
     projectContainerContainer.innerHTML = '';
     for (let i = 0; i <allProjects.length; i++) {
@@ -134,6 +134,7 @@ function renderProjects() {
         projectContainer.appendChild(trash);
         projectContainerContainer.appendChild(projectContainer);
     }
+    dynamicProjectTitle.textContent = getActiveProject().name;
 }
 
 
